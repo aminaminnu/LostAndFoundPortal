@@ -1,0 +1,129 @@
+.claim-container {
+  max-width: 1280px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Spinner */
+.spinner {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: center;
+  color: #333;
+}
+
+thead th {
+  background: #4fc3f7;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+tbody tr:hover {
+  background: #eef6fc;
+}
+
+/* Action buttons */
+.action-cell button {
+  margin: 0 2px;
+}
+
+/* Ensure Font Awesome icons are visible inside action buttons */
+.action-cell i {
+  font-size: 16px;
+  color: #333;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Hover effect for icons */
+.action-cell button:hover i {
+  color: #1976d2;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.unknown {
+  background: #e0e0e0;
+  color: #555;
+}
+
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Q&A row */
+.qa-row {
+  background: #f3f9fc;
+  font-size: 14px;
+}
+
+.qa-row .question {
+  color: #0275d8;
+  margin-bottom: 4px;
+}
+
+.qa-row .answer {
+  color: #5cb85c;
+  margin-bottom: 4px;
+}
+
+.qa-row .verified {
+  color: #198754;
+  font-weight: bold;
+}
+
+.no-claims {
+  text-align: center;
+  font-style: italic;
+  padding: 40px 0;
+}
+v.highlight-button {
+  background-color: #4caf50 !important; /* green background */
+  color: white !important;
+  border-radius: 50%;
+}

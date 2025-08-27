@@ -1,0 +1,95 @@
+/* Full Background */
+.dashboard-bg {
+  background: linear-gradient(to right, #f0f4f8, #d9e2ec); /* light blue-grey tones */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Main Container */
+.dashboard-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #e0e0e0; /* light neutral border */
+}
+
+/* Title */
+.dashboard-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2c3e50; /* dark blue-grey */
+}
+
+/* Card */
+.dashboard-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f7f9fc; /* very light blue background */
+}
+
+.dashboard-card mat-card-title {
+  font-size: 22px;
+  color: #1e88e5; /* material blue */
+  margin-bottom: 10px;
+}
+
+.dashboard-card p {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #555; /* medium dark text */
+}
+
+/* Chart */
+.dashboard-chart {
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+/* Buttons */
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dashboard-actions button {
+  min-width: 220px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: #1976d2; /* material blue */
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  transition: background 0.3s ease;
+}
+
+.dashboard-actions button:hover {
+  background-color: #1565c0; /* darker on hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+
+  .dashboard-chart {
+    max-width: 100%;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,30 @@
+<!-- src/app/reporter-dashboard/reporter-dashboard.component.html -->
+<h2>Reporter Dashboard</h2>
+
+<div class="toolbar">
+  <button mat-raised-button color="primary" (click)="active = 'overview'">Overview</button>
+  <button mat-raised-button color="accent" (click)="active = 'claims'">All Claims</button>
+  <button mat-raised-button (click)="active = 'lost'">All Lost Items</button>
+  <button mat-raised-button (click)="active = 'found'">All Found Items</button>
+</div>
+
+<section *ngIf="active === 'overview'">
+  <h3>Welcome, Reporter</h3>
+  <p>Select a section above to begin.</p>
+</section>
+
+<section *ngIf="active === 'claims'">
+  <h3>All Claims</h3>
+  <app-claim-list></app-claim-list>
+</section>
+
+<section *ngIf="active === 'lost'">
+  <h3>All Lost Items</h3>
+  <app-loser-lose-items [isReporterView]="true"></app-loser-lose-items>
+</section>
+
+<section *ngIf="active === 'found'">
+  <h3>All Found Items</h3>
+  <app-founder-found-items [isReporterView]="true"></app-founder-found-items>
+</section>
+

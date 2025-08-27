@@ -1,0 +1,16 @@
+
+<!-- bell -->
+<div class="bell" (click)="toggle()">
+  <span class="material-icons">notifications</span>
+  <span class="badge" *ngIf="unread">{{ unread }}</span>
+</div>
+
+<!-- dropdown -->
+<div class="panel" *ngIf="open">
+  <div class="item" *ngFor="let n of list">
+    <div class="title">{{ n.title }}</div>
+    <div class="msg">{{ n.message }}</div>
+    <div class="time">{{ n.createdAt | date:'short' }}</div>
+  </div>
+  <button class="clear" (click)="clear()">Clear all</button>
+</div>

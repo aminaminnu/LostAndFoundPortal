@@ -1,0 +1,68 @@
+<div class="form-wrapper">
+  <div class="form-card">
+    <h2>{{ isEditMode ? 'Edit' : 'Add' }} Lost Item</h2>
+
+    <form [formGroup]="lostItemForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="lostItemForm.get('name')?.hasError('required')">Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+      <mat-label>Location (City)</mat-label>
+     <mat-select formControlName="location" required>
+     <mat-option *ngFor="let city of cities" [value]="city">
+      {{ city }}
+    </mat-option>
+    </mat-select>
+    <mat-error *ngIf="lostItemForm.get('location')?.hasError('required')">
+    Location is required
+  </mat-error>
+</mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Lost Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="lostDate" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="lostItemForm.get('lostDate')?.hasError('required')">Lost Date is required</mat-error>
+      </mat-form-field>
+
+      <div class="image-upload">
+        <label for="image">📷 Upload Image</label>
+        <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*" />
+      </div>
+
+      <!-- Image Preview -->
+      <div class="image-preview" *ngIf="previewUrl || lostItem?.imagePath">
+        <img
+          *ngIf="previewUrl"
+          [src]="previewUrl"
+          alt="Preview"
+        />
+        <img
+          *ngIf="!previewUrl && lostItem?.imagePath"
+          [src]="'http://localhost:8080/' + lostItem.imagePath"
+          alt="Existing Lost Item Image"
+        />
+      </div>
+
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+          <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+          {{ isEditMode ? 'Update' : 'Add' }}
+        </button>
+
+        <button mat-button color="warn" routerLink="/lost/my-lost-items">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

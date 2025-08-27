@@ -1,0 +1,46 @@
+<!-- LOST ITEMS DASHBOARD -->
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>📋 Lost Items Dashboard</h1>
+    <p>Manage your lost item reports and submit claims easily.</p>
+  </div>
+
+  <div class="dashboard-actions">
+    <button mat-raised-button color="primary" [routerLink]="['/lost/add-lost-item']">
+      ➕ Add New Lost Item
+    </button>
+
+    <button mat-raised-button color="accent" [routerLink]="['/lost/my-lost-items']">
+      📁 View My Lost Items
+    </button>
+
+    <button mat-raised-button color="warn" [routerLink]="['/submit-claim']">
+      📝 Submit a Claim
+    </button>
+  </div>
+</div>
+
+<!-- 🔍 MIGHT BE YOUR ITEM SECTION -->
+<div class="dashboard-container" style="margin-top: 60px;">
+  <div class="dashboard-header">
+    <h1>🧾 Items That Might Be Yours</h1>
+    <p>If you recognize something, click below to submit a claim.</p>
+  </div>
+
+  <div class="found-items-grid">
+    <div *ngFor="let item of foundItems" class="found-card">
+      <img [src]="item.imageUrl" alt="Found Item" />
+
+      <h3>
+        {{ item.name }}
+        <small class="item-id">(#{{ item.id }})</small>
+      </h3>
+
+      <p><strong>Description:</strong> {{ item.description }}</p>
+      <p><strong>Found At:</strong> {{ item.location }}</p>
+      <p><strong>Date:</strong> {{ item.foundDate | date }}</p>
+
+      
+    </div>
+  </div>
+</div>

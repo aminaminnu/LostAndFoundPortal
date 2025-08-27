@@ -1,0 +1,158 @@
+<div class="home-wrapper">
+
+<!-- ─── NAVBAR ───────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="assets/image/iconn.png" alt="logo" class="logo-icon" />
+    <span  class="brand">FindMyStuff</span>
+  </div>
+
+  <ul class="nav-links">
+    <li><a (click)="openLoginModal()"><span class="material-icons">login</span> Login</a></li>
+    <li><a (click)="openRegisterModal()"><span class="material-icons">person_add</span> Register</a></li>
+    <li><a href="#services"><span class="material-icons">miscellaneous_services</span> Services</a></li>
+    <li><a href="#faq"><span class="material-icons">help_outline</span> FAQ</a></li>
+    <li><a href="#contact"><span class="material-icons">contact_mail</span> Contact</a></li>
+  </ul>
+</nav>
+
+
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+ <div class="hero">
+  <div class="hero-image-container">
+    <img src="assets/image/hero.jpg" class="hero-image" alt="Background" />
+  </div>
+  <div class="hero-content">
+    <h1 class="main-heading">
+  <span class="welcome-text">Welcome to</span> 
+  <span class="brand-name">FindMyStuff</span>
+</h1>
+
+    <p class="hero-subtext">
+      Lost something valuable? Found an item?<br />
+      Let’s reunite things with their rightful owners. Fast. Safe. Easy.
+    </p>
+    <button (click)="openRegisterModal()">Report Now</button>
+  </div>
+</div>
+
+<!-- ─── HOW IT WORKS (COMBINED SECTION) ───────────────────────── -->
+<section class="how-it-works">
+  <h2 class="hiw-heading">🔍 How It Works</h2>
+
+  <div class="hiw-grid">
+    <!-- Step 1 -->
+    <div class="hiw-card">
+      <img src="assets/image/lostt.jpg" alt="Report Lost Item">
+      <div class="hiw-text">
+        <h3>📌 Report & Track</h3>
+        <p>Submit your lost item with details, and we'll match it with reports from others. Track and manage your case anytime.</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="hiw-card">
+      <img src="assets/image/l1.jpg" alt="Smart Matching">
+      <div class="hiw-text">
+        <h3>🎯 Smart Matching</h3>
+        <p>Our system intelligently suggests found items that match your report — making recovery faster and more efficient.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- ─── SERVICES ──────────────────────────────────────────── -->
+  <section class="section" id="services">
+    <h2 class="section-title">✨ Our Services</h2>
+
+    <div class="cards">
+      <div class="card fade-in">
+        <i class="fas fa-search"></i>
+        <h3>Report Lost Item</h3>
+        <p>Let the world help you find your missing belongings.</p>
+      </div>
+
+      <div class="card fade-in">
+        <i class="fas fa-box-open"></i>
+        <h3>Post Found Item</h3>
+        <p>Help return items you’ve discovered back to the rightful owner.</p>
+      </div>
+
+      <div class="card fade-in">
+        <i class="fas fa-handshake"></i>
+        <h3>Claim &amp; Connect</h3>
+        <p>Bridge the gap between finders and owners — securely.</p>
+      </div>
+    </div>
+  </section>
+ 
+ 
+
+
+
+  <!-- ─── TESTIMONIALS ──────────────────────────────────────── -->
+  <section class="testimonials-section">
+    <h2 class="section-title">❤️ Success Stories</h2>
+
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>“I posted my lost backpack and had it back in <b>48 hours</b>!”</p>
+        <span>— Anjali K.</span>
+      </div>
+
+      <div class="testimonial">
+        <p>“Returned a wallet I found at the station. Super smooth process.”</p>
+        <span>— Ravi S.</span>
+      </div>
+
+      <div class="testimonial">
+        <p>“The Smart‑Match feature is a game‑changer. Thank you!”</p>
+        <span>— Priya N.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ───────────────────────────────────────────────── -->
+  <section class="faq-section" id="faq">
+    <h2 class="section-title">❓ Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Is FindMyStuff free to use?</summary>
+      <p>Yes — creating reports and claims is 100 % free.</p>
+    </details>
+
+    <details>
+      <summary>How do I know if a claim is legit?</summary>
+      <p>Reporters can ask custom verification questions before approving a claim.</p>
+    </details>
+
+    <details>
+      <summary>Can I upload multiple images?</summary>
+      <p>Absolutely. When posting an item you can attach up to 5 pics.</p>
+    </details>
+  </section>
+
+ 
+<!-- ─── CONTACT ───────────────────────────────────────────── -->
+<section class="contact-section" id="contact">
+  <h2>📞 Contact Us</h2>
+  <p>We’re happy to help. Reach out anytime.</p>
+
+  <div class="contact-info">
+    <p><i class="fas fa-envelope"></i> support@findmystuff.com</p>
+    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+    <p><i class="fas fa-map-marker-alt"></i> Thrissur, Kerala</p>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <p>&copy; {{ currentYear }} FindMyStuff • All rights reserved.</p>
+  <a href="#top" class="back-to-top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+</footer>

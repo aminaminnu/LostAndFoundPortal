@@ -1,0 +1,53 @@
+<div class="claim-form-container">
+  <h2><i class="fa-solid fa-file-circle-check"></i>&nbsp;Submit a Claim</h2>
+
+  <!-- Template‑driven form -->
+  <form #claimForm="ngForm" (ngSubmit)="submitClaim()" novalidate>
+    <!-- Lost Item ID -->
+    <div class="form-group">
+      <label for="lostItemId">Lost Item ID:</label>
+
+      <div class="input-icon">
+        <i class="fa-solid fa-magnifying-glass-location"></i>
+        <input
+          type="number"
+          id="lostItemId"
+          name="lostItemId"
+          [(ngModel)]="claim.lostItemId"
+          required
+          min="1"
+        />
+      </div>
+
+      <div class="error" *ngIf="claimForm.submitted && !claim.lostItemId">
+        Lost Item ID is required.
+      </div>
+    </div>
+
+    <!-- Found Item ID -->
+    <div class="form-group">
+      <label for="foundItemId">Found Item ID:</label>
+
+      <div class="input-icon">
+        <i class="fa-solid fa-binoculars"></i>
+        <input
+          type="number"
+          id="foundItemId"
+          name="foundItemId"
+          [(ngModel)]="claim.foundItemId"
+          required
+          min="1"
+        />
+      </div>
+
+      <div class="error" *ngIf="claimForm.submitted && !claim.foundItemId">
+        Found Item ID is required.
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" [disabled]="!claimForm.form.valid">
+      <i class="fa-solid fa-paper-plane"></i>&nbsp;Submit Claim
+    </button>
+  </form>
+</div>

@@ -1,0 +1,80 @@
+/* reporter-dashboard.component.css */
+
+/* General Page Styling */
+:host {
+  display: block;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #fce4ec, #e3f2fd); /* pastel pink → pastel blue */
+  min-height: 100vh;
+}
+
+/* Title */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Buttons inside toolbar */
+.toolbar button {
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+.toolbar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Sections */
+section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 18px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-top: 15px;
+}
+
+/* Section Titles */
+section h3 {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 6px;
+}
+
+/* Paragraphs */
+section p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  section {
+    padding: 15px;
+  }
+}

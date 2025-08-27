@@ -1,0 +1,67 @@
+<!-- Dialog Title -->
+<div mat-dialog-title class="login-title">
+  <h2>Welcome Back</h2>
+  <p class="subtitle">Please login to continue</p>
+</div>
+
+<!-- Dialog Content -->
+<mat-dialog-content class="login-page">
+  <div class="login-container">
+    <!-- Left Image Section -->
+    <div class="image-section">
+      <img src="assets/image/hero2.jpg" alt="Login Illustration" />
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="form-section">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
+        <!-- Email Field -->
+        <mat-form-field appearance="outline" class="full-width" hideRequiredMarker>
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            #emailRef="ngModel"
+            required
+          />
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+        <div *ngIf="emailRef.invalid && emailRef.touched" class="error-message">
+          Email is required.
+        </div>
+
+        <!-- Password Field -->
+        <mat-form-field appearance="outline" class="full-width" hideRequiredMarker>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            #passwordRef="ngModel"
+            required
+          />
+          <mat-icon matPrefix>lock</mat-icon>
+        </mat-form-field>
+        <div *ngIf="passwordRef.invalid && passwordRef.touched" class="error-message">
+          Password is required.
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button mat-button type="button" mat-dialog-close>Cancel</button>
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            [disabled]="!loginForm.form.valid"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-dialog-content>

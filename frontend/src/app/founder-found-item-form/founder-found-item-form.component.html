@@ -1,0 +1,75 @@
+<div class="found-form-bg">
+  <div class="form-container">
+   <h2 class="form-title">
+  <i class="fas fa-plus-circle"></i> {{ isEditMode ? 'Edit' : 'Add' }} Found Item
+</h2>
+
+
+    <form [formGroup]="foundItemForm" (ngSubmit)="onSubmit()" class="found-form">
+
+      <!-- Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="foundItemForm.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Description -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="3"></textarea>
+      </mat-form-field>
+
+      <!-- Location (City) -->
+   <mat-form-field appearance="fill">
+   <mat-label>Location (City)</mat-label>
+   <mat-select formControlName="location" required>
+    <mat-option *ngFor="let city of cities" [value]="city">
+      {{ city }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="foundItemForm.get('location')?.hasError('required')">
+    Location is required
+  </mat-error>
+   </mat-form-field>
+
+
+
+
+      <!-- Found Date -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Found Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="foundDate" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="foundItemForm.get('foundDate')?.hasError('required')">
+          Found date is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Upload -->
+      <div class="upload-group">
+        <label for="image" class="upload-label">📷 Upload Image</label>
+        <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*" />
+      </div>
+
+      <!-- Image Preview -->
+      <div *ngIf="previewUrl" class="image-preview">
+        <p><strong>Preview:</strong></p>
+        <img [src]="previewUrl" alt="Preview" />
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+       
+        <button mat-raised-button color="primary" type="submit" [disabled]="isSubmitting || foundItemForm.invalid">
+         <mat-spinner *ngIf="isSubmitting" diameter="20"></mat-spinner>
+           <span *ngIf="!isSubmitting">{{ isEditMode ? 'Update' : 'Add' }}</span>
+        </button>
+        <button mat-stroked-button color="warn" routerLink="/founder/my-found-items">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

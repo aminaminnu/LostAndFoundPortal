@@ -1,0 +1,112 @@
+<h2 class="fancy-title">
+  <i class="fas fa-box-open"></i> My Found Items
+</h2>
+
+<!-- 🔍 Search Field -->
+<mat-form-field appearance="outline" class="filter-input">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Type to search">
+</mat-form-field>
+
+<!-- ⏳ Loading Spinner -->
+<mat-spinner *ngIf="isLoading" diameter="40"></mat-spinner>
+
+<!-- 📦 No Data Message -->
+<div *ngIf="!isLoading && dataSource.data.length === 0">
+  <p>No found items available.</p>
+</div>
+
+<!-- 📋 Data Table -->
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="!isLoading" multiTemplateDataRows>
+
+  <!-- 🔄 Expand Toggle -->
+  <ng-container matColumnDef="expandToggle">
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button *ngIf="!element.detailRow" (click)="expandedElement = expandedElement === element ? null : element">
+        <mat-icon>{{ expandedElement === element ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- 📝 Name -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- 📍 Location -->
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+    <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+  </ng-container>
+
+<!-- 🌆 City -->
+<ng-container matColumnDef="city">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+  <td mat-cell *matCellDef="let element">{{ element.city }}</td>
+</ng-container>
+
+
+<!-- 🧹 Clear Filters Button -->
+<button mat-stroked-button color="primary" (click)="clearFilters()" style="margin-left: 1rem; margin-top: 1rem;">
+  Clear Filters
+</button>
+
+
+  <!-- 🧾 Description -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+  </ng-container>
+
+  <!-- 📆 Found Date -->
+  <ng-container matColumnDef="foundDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Found Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.foundDate | date }}</td>
+  </ng-container>
+
+  <!-- 🖼️ Image -->
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>Image</th>
+    <td mat-cell *matCellDef="let element">
+      <img [src]="element.imageUrl" alt="Item Image" width="100" *ngIf="element.imageUrl" />
+    </td>
+  </ng-container>
+
+  <!-- ⚙️ Actions -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary" [routerLink]="['/founder/edit-found-item', element.id]" *ngIf="!element.detailRow">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteItem(element.id)" *ngIf="!element.detailRow">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+ <!-- 🔽 Expanded Row -->
+<ng-container matColumnDef="detail">
+  <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length" class="detail-row">
+    <div class="item-details" *ngIf="expandedElement === element">
+      <p><strong>Name:</strong> {{ element.name }}</p>
+      <p><strong>Description:</strong> {{ element.description }}</p>
+      <p><strong>Found Date:</strong> {{ element.foundDate | date }}</p>
+      <p><strong>Location:</strong> {{ element.location }}</p>
+      <p><strong>City:</strong> {{ element.city }}</p>
+      <img [src]="element.imageUrl" alt="Item Image" height="150" *ngIf="element.imageUrl">
+    </div>
+  </td>
+</ng-container>
+
+
+
+  <!-- 🧱 Row Bindings -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.expanded]="expandedElement === row" [hidden]="row.detailRow"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['detail'];" class="detail-row" [hidden]="!row.detailRow"></tr>
+
+</table>
+
+<!-- ⏬ Paginator -->
+<mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>

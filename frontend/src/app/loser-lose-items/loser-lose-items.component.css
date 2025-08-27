@@ -1,0 +1,88 @@
+/* 🌸 Background and Font */
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fce4ec, #ffffff); /* pastel pink and white */
+  font-family: 'Inter', sans-serif;
+}
+
+/* 🌟 Heading */
+.fancy-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #880e4f;
+  text-shadow: 1px 1px 3px rgba(136, 14, 79, 0.15);
+}
+
+/* 🔍 Filter Input */
+.filter-input {
+  max-width: 450px;
+  margin: 0 auto 25px;
+  display: block;
+}
+
+/* ⏳ Spinner */
+mat-spinner {
+  display: block;
+  margin: 30px auto;
+}
+
+/* 📋 Table Styling */
+table {
+  width: 100%;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+}
+
+.mat-header-cell {
+  background-color: #f8bbd0;
+  font-weight: bold;
+  color: #880e4f;
+  font-size: 14px;
+}
+
+.mat-row:hover {
+  background-color: #fce4ec;
+}
+
+/* 🖼️ Image */
+img {
+  border-radius: 10px;
+  width: 80px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 🔘 Action Buttons */
+.mat-icon-button {
+  color: #ad1457;
+}
+.mat-icon-button:hover {
+  background-color: rgba(173, 20, 87, 0.1);
+}
+
+/* 🔽 Expanded Row Detail */
+.detail-row .item-details {
+  background-color: #fce4ec;
+  padding: 16px;
+  margin: 10px 0;
+  border-left: 4px solid #ad1457;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  table {
+    font-size: 13px;
+  }
+}
+
+/* ⏬ Paginator Spacing */
+mat-paginator {
+  margin-top: 30px;
+}

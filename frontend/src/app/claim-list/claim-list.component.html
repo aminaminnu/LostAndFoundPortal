@@ -1,0 +1,114 @@
+<div class="claim-container">
+  <!-- Spinner -->
+  <div class="spinner" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <!-- Table -->
+  <table *ngIf="!isLoading && (claims?.length ?? 0) > 0; else noClaims">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Lost Item</th>
+        <th>Found Item</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let claim of claims; trackBy: trackById">
+
+        <!-- Main Claim Row -->
+        <tr>
+          <td>{{ claim.id }}</td>
+          <td>{{ claim.lostItem?.itemName || claim.lostItemId }}</td>
+          <td>{{ claim.foundItem?.itemName || claim.foundItemId }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="claim.status?.toLowerCase() || 'unknown'">
+              {{ claim.status }}
+            </span>
+          </td>
+          <td class="action-cell">
+
+            <!-- Reporter Actions -->
+            <ng-container *ngIf="isReporter">
+              <button mat-icon-button color="primary" matTooltip="Approve" (click)="approve(claim.id!)">
+                <i class="fa-solid fa-check"></i>
+              </button>
+              <button mat-icon-button color="warn" matTooltip="Reject" (click)="reject(claim.id!)">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <button mat-icon-button color="accent" matTooltip="Mark Pending" (click)="markPending(claim.id!)">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </button>
+              <button mat-icon-button color="primary" matTooltip="Ask Question" (click)="askQuestion(claim.id!)">
+                <i class="fa-solid fa-question"></i>
+              </button>
+              <button mat-icon-button color="accent" matTooltip="Notify Loser" (click)="notifyLoser(claim.id!)">
+                <i class="fa-solid fa-envelope"></i>
+              </button>
+              <button mat-icon-button color="accent" matTooltip="Notify Finder" (click)="notifyFinder(claim.id!)">
+                <i class="fa-solid fa-bell"></i>
+              </button>
+
+              <!-- Verify Answer & Ask Finder -->
+              <button mat-icon-button color="primary" matTooltip="Verify Answer & Ask Finder" 
+                      (click)="verifyAnswer(claim.id!)">
+                <i class="fa-solid fa-user-check"></i>
+              </button>
+
+              <!-- Share Finder Contact -->
+              <button mat-icon-button 
+                      color="primary" 
+                      matTooltip="Share Finder Contact"
+                    (click)="shareFinderContact(claim.id!)">
+                <i class="fa-solid fa-handshake"></i>
+              </button>
+            </ng-container>
+
+            <!-- Finder Actions -->
+            <ng-container *ngIf="claim.isFinder && !isReporter">
+              <button mat-raised-button color="primary" (click)="setFinderPermission(claim.id!, true)">
+                Approve Contact
+              </button>
+              <button mat-raised-button color="warn" (click)="setFinderPermission(claim.id!, false)">
+                Deny Contact
+              </button>
+            </ng-container>
+
+            <!-- Loser Action -->
+            <button mat-icon-button color="primary"
+                    *ngIf="!isReporter && claim.reporterQuestion && !claim.loserAnswer"
+                    (click)="openAnswerModal(claim)">
+              <i class="fa-solid fa-reply"></i>
+            </button>
+          </td>
+        </tr> <!-- ✅ Close main row before starting Q&A row -->
+
+        <!-- Q&A Row -->
+        <tr *ngIf="claim.reporterQuestion || claim.loserAnswer" class="qa-row">
+          <td colspan="5">
+            <div *ngIf="claim.reporterQuestion" class="question">
+              <i class="fa-solid fa-question-circle"></i> <b>Question:</b> {{ claim.reporterQuestion }}
+            </div>
+            <div *ngIf="claim.loserAnswer" class="answer">
+              <i class="fa-solid fa-reply"></i> <b>Answer:</b> {{ claim.loserAnswer }}
+            </div>
+            <div *ngIf="claim.verifiedByReporter" class="verified">
+              <i class="fa-solid fa-circle-check"></i> Verified by reporter
+            </div>
+            <div *ngIf="isReporter">
+              <small>Verified: {{ claim.verifiedByReporter }} | Status: {{ claim.status }}</small>
+            </div>
+          </td>
+        </tr>
+
+      </ng-container>
+    </tbody>
+  </table>
+
+  <!-- No Claims -->
+  <ng-template #noClaims>
+    <p class="no-claims" *ngIf="!isLoading">No claims found.</p>
+  </ng-template>
+</div>

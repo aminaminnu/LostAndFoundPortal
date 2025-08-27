@@ -1,0 +1,113 @@
+/* ——— Panel Wrapper ——— */
+.panel {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  height: calc(100vh - 64px);
+  background: #f4f6fc;
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+/* ——— Sidebar ——— */
+.nav {
+  background: #fff;
+  border-right: 1px solid #e0e2e7;
+  padding-block: 12px;
+}
+.nav .mat-list-item {
+  margin: 4px 8px;
+  border-radius: 8px;
+  height: 48px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.nav .mat-list-item:hover {
+  background: #f5f7ff;
+}
+.nav .mat-list-item.active {
+  background: #3b5fe5;
+  color: #fff;
+}
+.nav .mat-icon {
+  color: inherit;
+  margin-right: 12px;
+}
+
+/* ——— Main Content ——— */
+.content {
+  padding: 32px 40px;
+  overflow: auto;
+}
+.toolbar {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0;
+}
+.grow {
+  flex: 1 1 auto !important;
+}
+
+/* ——— Table ——— */
+table {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border-spacing: 0;
+}
+.mat-header-row {
+  background: #eef0f6;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-header-cell {
+  font-weight: 600;
+  color: #4a4f66;
+  padding: 12px 16px;
+}
+.mat-cell {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+.mat-row {
+  height: 60px;
+  transition: background 0.2s;
+}
+.mat-row:nth-child(odd) {
+  background: #fafbff;
+}
+.mat-row:hover {
+  background-color: #eef2ff;
+  cursor: pointer;
+}
+
+/* ——— Table Controls ——— */
+.actions {
+  white-space: nowrap;
+}
+button[color="primary"] .mat-icon {
+  color: #2563eb;
+}
+button[color="warn"] .mat-icon {
+  color: #e02424;
+}
+
+/* ——— Form Elements ——— */
+mat-select {
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 768px) {
+  .panel {
+    grid-template-columns: 60px 1fr;
+  }
+  .nav .mat-list-item span {
+    display: none;
+  }
+  .content {
+    padding: 24px 20px;
+  }
+}
