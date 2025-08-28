@@ -87,6 +87,17 @@ ng serve
  ```bash
 http://localhost:4200
 `````
+🔧 Configuration
+
+Database: MySQL (default)
+
+Update application.properties in backend with your DB credentials:
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/lostfound_db
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+`````
+
 ## Project Structure
 ```bash
 LostAndFoundPortal/
@@ -140,6 +151,14 @@ LostAndFoundPortal/
 
 ### 📊 Reporter Dashboard  
 ![Reporter](./screenshots/reporter.png)  
+
+
+👩‍💻 Author / Contact Info
+
+Amina K A
+
+📍 Thrissur, India
+
 
 
 
