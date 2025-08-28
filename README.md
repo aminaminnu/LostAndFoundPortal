@@ -53,10 +53,42 @@ Follow these steps to set up and run the project on your local machine.
 ```bash
 git clone https://github.com/aminaminnu/LostAndFoundPortal.git
 cd LostAndFoundPortal
+`````
+2. Backend Setup (Spring Boot)
 
+ 1.Navigate to the backend folder:
+```bash
+cd backend
 
+`````
+ 2.Configure your database in application.properties (update username, password, and database name).
 
+ 3.Run the Spring Boot application:
+```bash
+mvn spring-boot:run
+`````
+or, if you use an IDE (IntelliJ / Eclipse / STS), simply run the MainProjectApplication.java.
+
+3. Frontend Setup (Angular)
+
+ 1.Navigate to the frontend folder:
+ ```bash
+cd ../frontend
+`````
+ 2.Install dependencies:
+ ```bash
+npm install
+`````
+ 3.Start the Angular development server:
+ ```bash
+ng serve
+`````
+ 4.Open your browser and go to:
+ ```bash
+http://localhost:4200
+`````
 ## Project Structure
+```bash
 LostAndFoundPortal/
 ├── backend/        # Spring Boot application
 │   ├── src/        # Java source code
@@ -67,6 +99,7 @@ LostAndFoundPortal/
 │   ├── package.json
 │
 └── README.md       # Project documentation
+`````
 
 ## 📸 Screenshots  
 
