@@ -57,24 +57,45 @@ LostAndFoundPortal/
 │
 └── README.md       # Project documentation
 
-## 📸 Screenshots
-
 ## 📸 Screenshots  
 
-### 🏠 Home Page  
+### 🏠 Home Pages  
 ![Home](./screenshots/home.png)  
+![Home1](./screenshots/home1.png)  
+![Home2](./screenshots/home2.png)  
+![Home3](./screenshots/home3.png)  
+![Home4](./screenshots/home4.png)  
 
 ### 🔑 Login Page  
 ![Login](./screenshots/login.png)  
 
-### 📝 Finder Form  
-![Finder Form](./screenshots/finder-form.png)  
-
-### 📋 Finder List  
-![Finder List](./screenshots/finder-list.png)  
+### 📝 Finder  
+- Finder Form  
+  ![Finder Form](./screenshots/finder-form.png)  
+- Finder Home  
+  ![Finder Home](./screenshots/finder-home.png)  
+- Finder List  
+  ![Finder List](./screenshots/finder-list.png)  
 
 ### 🛠️ Admin Dashboard  
 ![Admin](./screenshots/admin.png)  
+
+### 🙍 Loser Pages  
+- Loser Home  
+  ![Loser Home](./screenshots/loser_home.png)  
+- Loser Claim  
+  ![Loser Claim](./screenshots/loser-claim.png)  
+- Loser Form  
+  ![Loser Form](./screenshots/loser-form.png)  
+
+### 📂 Losing List  
+![Losing List](./screenshots/losing_list.png)  
+
+### 📝 Register Page  
+![Register](./screenshots/register.png)  
+
+### 📊 Reporter Dashboard  
+![Reporter](./screenshots/reporter.png)  
 
 
 
