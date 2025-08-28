@@ -45,11 +45,15 @@ Claim Management – Handle claims for found items with admin approval.
 
 Security: JWT Authentication, Role-Based Access Control
 
-⚙️ Installation / Setup Instructions
-1. Clone the repository
-   ```bash
+## ⚙️ Installation / Setup Instructions
+
+Follow these steps to set up and run the project on your local machine.
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/aminaminnu/LostAndFoundPortal.git
 cd LostAndFoundPortal
+
 
 
 ## Project Structure
