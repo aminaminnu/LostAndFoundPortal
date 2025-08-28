@@ -57,5 +57,28 @@ LostAndFoundPortal/
 │
 └── README.md       # Project documentation
 
+## 📸 Screenshots
+
+## 📸 Screenshots  
+
+### 🏠 Home Page  
+![Home](./screenshots/home.png)  
+
+### 🔑 Login Page  
+![Login](./screenshots/login.png)  
+
+### 📝 Finder Form  
+![Finder Form](./screenshots/finder-form.png)  
+
+### 📋 Finder List  
+![Finder List](./screenshots/finder-list.png)  
+
+### 🛠️ Admin Dashboard  
+![Admin](./screenshots/admin.png)  
+
+
+
+
+
 
 >>>>>>> e4e45d6 (Initial commit with Angular frontend ans spring Boot backend)
