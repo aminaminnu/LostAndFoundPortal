@@ -1,37 +1,61 @@
 <<<<<<< HEAD
-# LostAndFoundPortal
-=======
-# LostAndFoundPortal
-Lost and Found Portal built with Spring Boot (backend) and Angular (frontend). Users can report lost items, add found items, and make claims. Includes JWT-based authentication and role-based access for admin and users.
+📌 Lost and Found Portal
+📖 Overview
+
+The Lost and Found Portal is a full-stack web application designed to streamline the reporting, searching, and claiming of lost and found items within a community (e.g., campus or city). The system ensures secure access and provides a personalized experience based on user roles (Admin, Reporter, User).
 
 🚀 Features
 
-🔑 User Authentication – Login & Registration with JWT
+🔑 JWT-based Authentication – Secure login and role-based access control.
 
-👤 Role-based Access – Admin & User roles
+📝 Lost Item Reporting – Users can report lost items with details.
 
-📝 Report Lost Items – Users can post details of lost belongings
+📸 Found Item Posting – Users can post items they’ve found.
 
-🔍 Register Found Items – Users can add found items to help others
+🤖 Smart Match Suggestions – Suggests possible matches between lost and found items.
 
-📌 Claim System – Lost item owners can submit claims
+📂 Claim Management – Users can claim found items; claims go through admin verification.
 
-🛡️ Claim Verification – Admin can approve or reject claims
+👤 Role-based Access:
+   Admin: Manage all users’ personal details and oversee portal activity.
+   Reporter: Manage reported items and user data related to reporting.
+   User: Report lost items, post found items, and claim found items.
 
-📊 Admin Dashboard – View/manage users, lost items, found items, and claims
-
+ 📊 Admin Dashboard – View/manage users, lost items, found items, and claims
 
 🛠️ Tech Stack
 
-Frontend: Angular, TypeScript, HTML, CSS
-Backend: Spring Boot, Spring Security, JWT
-Database: MySQL
-Build Tools: Maven (backend), Angular CLI (frontend)
+Frontend: Angular, HTML, CSS
 
-📂 Project Structure
+Backend: Spring Boot, Java
+
+Database: MySQL
+
+API: REST API
+
+📌 Modules
+
+Lost Item Reporting – Report and track missing items.
+
+Found Item Posting – Post and manage found items.
+
+Smart Match Suggestions – Automatic suggestions for matching lost & found items.
+
+Claim Management – Handle claims for found items with admin approval.
+
+Security: JWT Authentication, Role-Based Access Control
+
+## Project Structure
 LostAndFoundPortal/
-│── backend/     # Spring Boot backend
-│── frontend/    # Angular frontend
-│── README.md    # Project documentation
+├── backend/        # Spring Boot application
+│   ├── src/        # Java source code
+│   ├── pom.xml     # Maven dependencies
+│
+├── frontend/       # Angular application
+│   ├── src/        # Angular source code
+│   ├── package.json
+│
+└── README.md       # Project documentation
+
 
 >>>>>>> e4e45d6 (Initial commit with Angular frontend ans spring Boot backend)
